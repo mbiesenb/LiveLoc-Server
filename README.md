@@ -1,5 +1,5 @@
-## Kotlin WebSocket SparkJava Chat Demo
+## LiveLoc Server
 
-This is a simple demo using SparkJava and Kotlin to show WebSockets working in a Chat application demo.
+This is a WebSocket Kotlin Server.
 
-This was recorded as part of a YouTube video tutorial --> https://www.youtube.com/watch?v=g3ohGP4QJKY
+
