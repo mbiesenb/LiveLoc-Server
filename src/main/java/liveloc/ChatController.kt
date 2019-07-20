@@ -18,7 +18,6 @@ import liveloc.model.receive.payload.Payload
 import liveloc.model.receive.payload.Position
 import liveloc.model.receive.payload.RegistGroup
 
-
 fun main(args: Array<String>) {
     port(9000)
     staticFileLocation("/public")
