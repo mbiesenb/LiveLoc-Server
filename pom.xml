@@ -74,4 +74,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Internal repo</name>
+            <url>file:////home/martin/jenkins</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>Internal repo</name>
+            <url>file:////home/martin/jenkins</url>
+        </repository>
+    </distributionManagement>
 </project>
