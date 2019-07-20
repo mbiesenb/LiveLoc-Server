@@ -74,15 +74,15 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <distributionManagement>
         <repository>
             <id>releases</id>
-            <url>/home/martin/jenkins</url>
+            <url>/var/lib/jenkins</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
-            <url>/home/martin/jenkins</url>
+            <url>/var/lib/jenkins</url>
         </snapshotRepository>
     </distributionManagement>
 
