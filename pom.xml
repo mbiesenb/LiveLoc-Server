@@ -74,16 +74,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <url>/var/lib/jenkins</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>/var/lib/jenkins</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 </project>
