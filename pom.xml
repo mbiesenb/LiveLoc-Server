@@ -77,7 +77,7 @@
 
     <distributionManagement>
         <repository>
-            <id>releases</id>
+            <id>snapshots</id>
             <url>file:////home/martin/jenkins</url>
         </repository>
     </distributionManagement>
