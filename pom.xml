@@ -80,9 +80,5 @@
             <id>releases</id>
             <url>file:////home/martin/jenkins</url>
         </repository>
-        <repository>
-            <id>snapshots</id>
-            <url>file:////home/martin/jenkins</url>
-        </repository>
     </distributionManagement>
 </project>
