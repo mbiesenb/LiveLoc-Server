@@ -21,7 +21,7 @@ pipeline {
                     sh 'mvn deploy'
                 }
 
-                def stdout = sh('java -jar *jar-with-dependencies.jar &')
+                def stdout = sh(script: 'java -jar *jar-with-dependencies.jar &', returnStdout: true)
                 println stdout
             }
         }
