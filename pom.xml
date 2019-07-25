@@ -93,7 +93,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ChatControllerKt</mainClass>
+                            <mainClass>ChatController.kt</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -110,7 +110,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>ChatControllerKt</mainClass>
+                                    <mainClass>ChatController.kt</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
