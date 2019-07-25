@@ -16,8 +16,8 @@ pipeline {
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn deploy'
                 }
-                sh('sudo rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
-                sh('sudo java -jar *jar-with-dependencies.jar &')
+                sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
+                sh('java -jar *jar-with-dependencies.jar &')
             }
         }
     }
