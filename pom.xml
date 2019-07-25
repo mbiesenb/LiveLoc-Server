@@ -93,7 +93,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ChatController.kt</mainClass>
+                            <mainClass>liveloc.ChatControllerKt</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -110,7 +110,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>ChatController.kt</mainClass>
+                                    <mainClass>liveloc.ChatControllerKt</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
