@@ -13,7 +13,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                sh('pkill -f *jar-with-dependencies.jar')
+               
 
                 sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
 
