@@ -13,7 +13,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-               
+
 
                 sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
 
@@ -21,7 +21,8 @@ pipeline {
                     sh 'mvn deploy'
                 }
 
-                sh('java -jar *jar-with-dependencies.jar &')
+                def stdout = sh('java -jar *jar-with-dependencies.jar &')
+                println stdout
             }
         }
     }
