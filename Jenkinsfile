@@ -20,8 +20,8 @@ pipeline {
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn deploy'
                 }
-
-                //sh('java -jar *jar-with-dependencies.jar &')
+                sh('cd /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/')
+                sh('java -jar *jar-with-dependencies.jar &')
 
                 //println stdout
             }
