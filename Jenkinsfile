@@ -15,7 +15,7 @@ pipeline {
             steps {
 
 
-                //sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
+                sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
 
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn deploy'
