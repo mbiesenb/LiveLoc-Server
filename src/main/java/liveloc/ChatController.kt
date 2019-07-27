@@ -95,13 +95,13 @@ class ChatWSHandler {
      */
     @OnWebSocketClose
     fun disconnect(session: Session, code: Int, reason: String?) {
+        println("Session disconnected")
         var user = ugController.getUserBySession(session)
         if ( user != null ){
             var serverMessage = ServerMessage(user.id , UserDisconnected(), "USER_DISCONNECTED")
             sendFromUser(user , serverMessage)
         }
         ugController.userDisconnected(session)
-        println("Session disconnected")
     }
 
 
