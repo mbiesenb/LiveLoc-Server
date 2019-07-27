@@ -105,7 +105,15 @@ class ChatWSHandler {
     }
 
 
-    fun emit(session: Session, message: ServerMessage) = session.remote.sendString(Gson().toJson(message))
+    fun emit(session: Session?, message: ServerMessage) {
+        /*
+            Prevent an null pointer exception when server wants to
+            send an disconnect message to the user who has disconnected
+         */
+        if ( session != null ) {
+            session.remote.sendString(Gson().toJson(message))
+        }
+    }
     fun broadcast(message: ServerMessage) = users.forEach() { emit(it.key, message) }
 
     fun sendFromUser(user: User, serverMessage: ServerMessage){
@@ -114,7 +122,7 @@ class ChatWSHandler {
     }
     fun sendInGroup(group: Group, serverMessage: ServerMessage){
         var users = ugController.getUsersFromGroup(group)
-        users.forEach { u -> emit(ugController.getSessionByUser(u)!!, serverMessage) }
+        users.forEach { u -> emit(ugController.getSessionByUser(u), serverMessage) }
     }
     //fun broadcastToOthers(session: Session, message: Message) = users.filter { it.key != session }.forEach() { emit(it.key, message)}
 
