@@ -16,7 +16,7 @@ pipeline {
 
 
                 sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
-
+                sh('pkill -f *jar-with-dependencies.jar')
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn deploy'
                 }
