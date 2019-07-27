@@ -5,7 +5,6 @@ import com.google.gson.JsonParseException
 import liveloc.controller.User
 import liveloc.controller.UserGroupController
 import liveloc.model.receive.ClientMessage
-import liveloc.model.receive.payload.UserInfo
 import org.eclipse.jetty.websocket.api.Session
 import org.eclipse.jetty.websocket.api.annotations.*
 import spark.Spark.*
@@ -13,10 +12,8 @@ import java.util.concurrent.atomic.AtomicLong
 import com.google.gson.GsonBuilder
 import liveloc.controller.Group
 import liveloc.etc.RuntimeTypeAdapterFactory
+import liveloc.model.receive.payload.*
 import liveloc.model.send.ServerMessage
-import liveloc.model.receive.payload.Payload
-import liveloc.model.receive.payload.Position
-import liveloc.model.receive.payload.RegistGroup
 
 fun main(args: Array<String>) {
     port(9000)
@@ -48,8 +45,8 @@ class ChatWSHandler {
         try {
             val runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
                     .of(Payload::class.java, "type")
-                    .registerSubtype(UserInfo::class.java, "SAY_HELLO")
-                    .registerSubtype(Position::class.java, "UPDATE_POSITION")
+                    .registerSubtype(RegistUser::class.java, "SAY_HELLO")
+                    .registerSubtype(PositionChanged::class.java, "UPDATE_POSITION")
                     .registerSubtype(RegistGroup::class.java, "REGIST_GROUP")
             val gson = GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create()
             val messageObj: ClientMessage = gson.fromJson(message, ClientMessage::class.java)
@@ -59,8 +56,8 @@ class ChatWSHandler {
             /*
                 Check which kind of payload was send by the client
              */
-            if (payload is UserInfo) {
-                var user = User(userInfo = payload as UserInfo)
+            if (payload is RegistUser) {
+                var user = User(userInfo = payload as RegistUser)
                 ugController.newUserConnected(user, session)
                 println("User ${user.name} has authenticated ")
             }
@@ -76,7 +73,7 @@ class ChatWSHandler {
                 }
                 println("User registered in Group ${group.id}")
             }
-            if (payload is Position) {
+            if (payload is PositionChanged) {
                 var user = ugController.getUserBySession(session)
                 if ( user != null) {
 
@@ -92,8 +89,17 @@ class ChatWSHandler {
     }
 
 
+    /**
+     *  First send disconnect message to all users
+     *  Then delete connections in controller
+     */
     @OnWebSocketClose
     fun disconnect(session: Session, code: Int, reason: String?) {
+        var user = ugController.getUserBySession(session)
+        if ( user != null ){
+            var serverMessage = ServerMessage(user.id , UserDisconnected(), "USER_DISCONNECTED")
+            sendFromUser(user , serverMessage)
+        }
         ugController.userDisconnected(session)
         println("Session disconnected")
     }

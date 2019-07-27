@@ -1,6 +1,6 @@
 package liveloc.controller
 
-import liveloc.model.receive.payload.UserInfo
+import liveloc.model.receive.payload.RegistUser
 import java.util.*
 
 
@@ -10,7 +10,7 @@ class User {
     var oauth_key = ""
     var name = ""
 
-    constructor(userInfo: UserInfo){
+    constructor(userInfo: RegistUser){
         this.oauth_key = userInfo.oauth_key
         this.name = userInfo.name
         this.id = UUID.randomUUID().toString()

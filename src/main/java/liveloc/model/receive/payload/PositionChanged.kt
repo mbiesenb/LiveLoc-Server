@@ -2,7 +2,7 @@ package liveloc.model.receive.payload
 
 import com.google.gson.annotations.SerializedName
 
-class Position : Payload(){
+class PositionChanged : Payload(){
 
     @SerializedName("timestamp")
     var timestamp : String = ""
