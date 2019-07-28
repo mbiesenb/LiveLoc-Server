@@ -47,6 +47,6 @@ pipeline {
 pipeline {
     stage('Build Maven Project') {
         echo "Building"
-        sh "docker build -t liveloc-worker .
+        sh "docker build -t liveloc-worker ."
     }
 }
