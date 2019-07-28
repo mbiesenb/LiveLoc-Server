@@ -110,7 +110,7 @@ class ChatWSHandler {
             Prevent an null pointer exception when server wants to
             send an disconnect message to the user who has disconnected
          */
-        if ( session != null ) {
+        if ( session != null && session.isOpen) {
             session.remote.sendString(Gson().toJson(message))
         }
     }
