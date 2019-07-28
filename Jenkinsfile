@@ -1,4 +1,4 @@
-pipeline {
+node {
     withMaven(maven:'maven') {
         stage('Checkout') {
             git url: 'https://github.com/mbiesenb/LiveLoc-Server.git', credentialsId: 'mbiesenb', branch: 'master'
