@@ -1,3 +1,5 @@
+dockerName = 'liveloc-worker'
+
 pipeline {
     agent any
 
@@ -5,6 +7,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
+                echo 'Starting to compile java files'
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn clean compile'
                 }
@@ -13,24 +16,27 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-
-
-                //sh('rm -rf /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*')
+                echo 'Starting to deploy java files'
                 withMaven(maven : 'maven_3.6.1') {
                     sh 'mvn deploy'
                 }
-                //sh('mv /home/martin/jenkins/codemwnci/kotlin-ws-chat/1.0-SNAPSHOT/*dependencies.jar liveloc.jar')
             }
         }
 
-        stage('Build image') {
+        stage('Build Image Stage') {
             steps {
-                echo 'Starting to build docker image'
+                sh 'docker stop $(docker ps -q --filter ancestor=liveloc-worker )'
+                sh 'docker container rm $(docker ps -q --filter ancestor=liveloc-worker )'
                 script {
-                    def customImage = docker.build("liveloc-worker")
-                        //customImage.push()
+                    def customImage = docker.build(myVar)
                 }
             }
+        }
+        stage('Start Container Stage') {
+            steps {
+                sh 'docker run ${myVar}'
+            }
+
         }
     }
 }
