@@ -28,7 +28,7 @@ pipeline {
                 script {
                     // Kill if exists
                     //def statusStop = sh "docker container stop ${APP_NAME} || true"
-                    def statusRm = sh "docker container rm ${APP_NAME} || true"
+                    def statusRm = sh "docker container rm -f ${APP_NAME} || true"
 
                     // Build image
                     def customImage = docker.build("${APP_NAME}")
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run -p 3000:3000 --name liveloc-worker liveloc-worker ${APP_NAME} &"
+                sh "docker run -p 3000:3000 --name liveloc-worker ${APP_NAME} &"
             }
 
         }
