@@ -30,7 +30,7 @@ pipeline {
                 //sh "docker container stop ${dockerName}"
                 //sh "docker stop $(docker ps -q --filter ancestor=${dockerName} )"
                 script {
-                    def customImage = docker.build(myVar)
+                    def customImage = docker.build('liveloc-worker')
                 }
             }
         }
