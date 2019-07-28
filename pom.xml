@@ -47,6 +47,8 @@
     </dependencies>
 
     <build>
+        <finalName>liveloc-worker</finalName>
+        
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
