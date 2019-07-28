@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run liveloc-worker"
+                sh "docker run liveloc-worker &"
             }
 
         }
