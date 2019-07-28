@@ -29,6 +29,7 @@ pipeline {
                     // Kill if exists
                     //def statusStop = sh "docker container stop ${APP_NAME} || true"
                     def statusRm = sh "docker container rm -f ${APP_NAME} || true"
+                    def statusRmImage = sh "docker image rm -f ${APP_NAME} || true"
 
                     // Build image
                     def customImage = docker.build("${APP_NAME}")
