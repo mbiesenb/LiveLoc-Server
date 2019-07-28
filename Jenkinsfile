@@ -26,6 +26,7 @@ pipeline {
         stage('Build Image Stage') {
             steps {
                 //sh 'docker stop $(docker ps -q --filter ancestor=liveloc-worker )'
+                echo 'docker container stop ${dockerName} txt'
                 sh 'docker container stop ${dockerName}'
                 script {
                     def customImage = docker.build(myVar)
