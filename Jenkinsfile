@@ -1,40 +1,34 @@
 node {
-    try {
-        stage('Handle running container') {
-            try {
-                echo "Stopping Container"
-                sh "docker stop liveloc-worker"
-                echo "Removing Container"
-                sh "docker rm -f liveloc-worker"
-            } catch (e) {
-                echo "there was no existing container to stop, this may can lead to problems later in the pipeline: {$e}"
+
+    withMaven(maven:'maven') {
+
+        stage('Checkout') {
+            git url: 'https://github.com/mbiesenb/LiveLoc-Server.git', credentialsId: 'mbiesenb', branch: 'master'
+        }
+
+        stage('Build') {
+            sh 'mvn clean install'
+
+            def pom = readMavenPom file:'pom.xml'
+            print pom.version
+            env.version = pom.version
+        }
+
+        stage('Image') {
+            dir ('discovery-service') {
+                def app = docker.build "localhost:5000/discovery-service:${env.version}"
+                app.push()
             }
         }
-        stage('Dockerimage - Build') {
-            echo "Building"
-            sh "docker build -t liveloc-worker ."
+
+        stage ('Run') {
+            docker.image("localhost:5000/discovery-service:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
         }
-        stage('Deploy Dockerimage -> Server') {
-            echo "deploy to server .."
-            sh "docker run \
-                    -p 9000:9000 \
-                    --name liveloc-worker \
-                    -d liveloc-worker   "
-            echo "deployed and started successfully to server!"
+
+        stage ('Final') {
+            build job: 'account-service-pipeline', wait: false
         }
-        stage('Clean deprecated docker images') {
-            sh "docker image prune -a -f"
-            echo "Build Server is successfully cleaned"
-        }
-        stage('Cleanup workspace'){
-            echo "Cleanup workspace..."
-            deleteDir()
-            echo "Cleanup workspace successfully!"
-        }
-    } catch (e) {
-        currentBuild.result = 'FAILURE'
-        throw e
-    } finally {
 
     }
+
 }

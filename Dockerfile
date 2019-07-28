@@ -1,7 +1,5 @@
-#
-# Build stage
-#
-FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
+FROM openjdk
+MAINTAINER Piotr Minkowski <piotr.minkowski@gmail.com>
+ADD target/account-service.jar account-service.jar
+ENTRYPOINT ["java", "-jar", "/account-service.jar"]
+EXPOSE 2222
