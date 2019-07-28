@@ -22,21 +22,22 @@ pipeline {
                 }
             }
         }
-
+        // ${dockerName}
         stage('Build Image Stage') {
             steps {
                 script {
                     // Kill if exists
-                    def statusStop = sh "docker container stop liveloc-worker || true"
-                    def statusRm = sh "docker container rm liveloc-worker || true"
+                    def statusStop = sh "docker container stop ${dockerName} || true"
+                    def statusRm = sh "docker container rm ${dockerName} || true"
 
-                    def customImage = docker.build('liveloc-worker')
+                    // Build image
+                    def customImage = docker.build("${dockerName}")
                 }
             }
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run --name liveloc-worker -p 9000:9000 liveloc-worker &"
+                sh "docker run --name liveloc-worker -p 9000:9000 ${dockerName} &"
             }
 
         }
