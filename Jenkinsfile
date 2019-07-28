@@ -1,4 +1,4 @@
-APP_NAME = 'liveloc-worker'
+/*APP_NAME = 'liveloc-worker'
 
 pipeline {
     agent any
@@ -41,5 +41,12 @@ pipeline {
                 sh "docker run -d -p 9000:9000 --name ${APP_NAME} ${APP_NAME}"
             }
         }
+    }
+}*/
+
+pipeline {
+    stage('Build Maven Project') {
+        echo "Building"
+        sh "docker build -t liveloc-worker .
     }
 }
