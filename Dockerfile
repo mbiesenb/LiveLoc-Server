@@ -1,5 +1,5 @@
 FROM java:8
 WORKDIR /
 ADD liveloc.jar liveloc.jar
-EXPOSE 3000
+EXPOSE 9000
 CMD ["java", "-jar", "liveloc.jar"]
