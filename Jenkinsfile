@@ -25,13 +25,14 @@ pipeline {
 
         stage('Build Image Stage') {
             steps {
-                try {
-                    sh "docker container stop liveloc-worker"
-                    sh "docker container rm liveloc-worker"
-                } catch(err) {
-                    echo err
-                }
                 script {
+                    try {
+                        sh "docker container stop liveloc-worker"
+                        sh "docker container rm liveloc-worker"
+                    } catch (err) {
+                        echo err
+                    }
+
                     def customImage = docker.build('liveloc-worker')
                 }
             }
