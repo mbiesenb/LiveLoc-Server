@@ -113,6 +113,7 @@ class ChatWSHandler {
         if ( session != null && session.isOpen) {
             try {
                 session.remote.sendString(Gson().toJson(message))
+                session.remote.sendString("new line")
             }catch (e : Exception){
                 //handle here
             }
