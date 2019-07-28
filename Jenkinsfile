@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run -p 9000:9000 --name liveloc-worker liveloc-worker ${APP_NAME} &"
+                sh "docker run -p 3000:3000 --name liveloc-worker liveloc-worker ${APP_NAME} &"
             }
 
         }

@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a4878c4-5a00-4521-a2f4-1833c8b2e230" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Jenkinsfile" afterPath="$PROJECT_DIR$/Jenkinsfile" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,8 +55,8 @@
       <file leaf-file-name="Jenkinsfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="29" column="82" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="82" />
+            <state relative-caret-position="326">
+              <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -84,8 +85,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="63">
+              <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -176,8 +177,8 @@
         <option value="$PROJECT_DIR$/src/main/java/liveloc/model/send/ServerMessage.kt" />
         <option value="$PROJECT_DIR$/src/main/java/liveloc/model/receive/payload/UserDisconnected.kt" />
         <option value="$PROJECT_DIR$/src/main/java/liveloc/ChatController.kt" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/Jenkinsfile" />
       </list>
     </option>
@@ -484,12 +485,12 @@
       <workItem from="1563634242023" duration="4290000" />
       <workItem from="1563658942341" duration="2302000" />
       <workItem from="1564046483921" duration="12320000" />
-      <workItem from="1564310387043" duration="13702000" />
+      <workItem from="1564310387043" duration="15243000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72839000" />
+    <option name="totallyTimeSpent" value="74380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
@@ -921,16 +922,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="63">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="29" column="82" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="82" />
+        <state relative-caret-position="326">
+          <caret line="39" column="43" lean-forward="false" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
           <folding />
         </state>
       </provider>
