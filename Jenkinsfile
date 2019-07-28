@@ -26,6 +26,7 @@ pipeline {
         stage('Build Image Stage') {
             steps {
                 script {
+                    // Kill if exists
                     def statusStop = sh "docker container stop liveloc-worker || true"
                     def statusRm = sh "docker container rm liveloc-worker || true"
 
