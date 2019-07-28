@@ -1,5 +1,5 @@
 node {
-    withMaven(maven:'maven') {
+    withMaven(maven:'maven_3.6.1') {
         stage('Checkout') {
             git url: 'https://github.com/mbiesenb/LiveLoc-Server.git', credentialsId: 'mbiesenb', branch: 'master'
         }
