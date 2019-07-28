@@ -1,4 +1,4 @@
-dockerName = 'liveloc-worker'
+APP_NAME = 'liveloc-worker'
 
 pipeline {
     agent any
@@ -27,17 +27,17 @@ pipeline {
             steps {
                 script {
                     // Kill if exists
-                    def statusStop = sh "docker container stop ${dockerName} || true"
-                    def statusRm = sh "docker container rm ${dockerName} || true"
+                    def statusStop = sh "docker container stop ${APP_NAME} || true"
+                    def statusRm = sh "docker container rm ${APP_NAME} || true"
 
                     // Build image
-                    def customImage = docker.build("${dockerName}")
+                    def customImage = docker.build("${APP_NAME}")
                 }
             }
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run --name liveloc-worker -p 9000:9000 ${dockerName} &"
+                sh "docker run --name liveloc-worker -p 9000:9000 ${APP_NAME} &"
             }
 
         }
