@@ -1,5 +1,5 @@
 FROM java:8
 WORKDIR /
-COPY /home/martin/jenkins/liveloc/liveloc-worker/1.0liveloc-worker-1.0-jar-with-dependencies.jar liveloc.jar
+COPY liveloc-worker.jar liveloc-worker.jar
 EXPOSE 9000
-CMD ["java", "-jar", "liveloc.jar"]
+CMD ["java", "-jar", "liveloc-worker.jar"]
