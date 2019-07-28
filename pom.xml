@@ -60,7 +60,7 @@
                         <goals>
                             <goal>compile</goal>
                         </goals>
-                    </execution>
+                    </execution> 
                 </executions>
                 <configuration>
                     <jvmTarget>1.8</jvmTarget>
