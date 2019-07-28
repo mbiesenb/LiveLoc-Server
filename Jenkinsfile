@@ -34,7 +34,7 @@ pipeline {
                     }
 
                     def customImage = docker.build('liveloc-worker')
-                }
+                } 
             }
         }
         stage('Start Container Stage') {
