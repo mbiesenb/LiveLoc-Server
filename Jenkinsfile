@@ -25,10 +25,10 @@ pipeline {
 
         stage('Build Image Stage') {
             steps {
-                try{
+                try {
                     sh "docker container stop liveloc-worker"
                     sh "docker container rm liveloc-worker"
-                }catch(err){
+                } catch(err) {
                     echo err
                 }
                 script {
