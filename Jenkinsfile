@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Start Container Stage') {
             steps {
-                sh "docker run -p 9000:9000 --name ${APP_NAME} ${APP_NAME} &"
+                sh "docker run -d -p 9000:9000 --name ${APP_NAME} ${APP_NAME}"
             }
         }
     }
