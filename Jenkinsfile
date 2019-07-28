@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Kill if exists
-                    def statusStop = sh "docker container stop ${APP_NAME} || true"
+                    //def statusStop = sh "docker container stop ${APP_NAME} || true"
                     def statusRm = sh "docker container rm ${APP_NAME} || true"
 
                     // Build image
