@@ -111,7 +111,11 @@ class ChatWSHandler {
             send an disconnect message to the user who has disconnected
          */
         if ( session != null && session.isOpen) {
-            session.remote.sendString(Gson().toJson(message))
+            try {
+                session.remote.sendString(Gson().toJson(message))
+            }catch (e : Exception){
+                //handle here
+            }
         }
     }
     fun broadcast(message: ServerMessage) = users.forEach() { emit(it.key, message) }
