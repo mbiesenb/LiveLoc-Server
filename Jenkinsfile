@@ -25,6 +25,7 @@ pipeline {
 
         stage('Build Image Stage') {
             steps {
+                sh "sudo docker container stop liveloc-worker"
                 script {
                     def customImage = docker.build('liveloc-worker')
                 }
