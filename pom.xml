@@ -125,10 +125,10 @@
         </plugins>
     </build>
 
-    <!--<distributionManagement>
+    <distributionManagement>
         <repository>
             <id>snapshots</id>
             <url>file:////home/martin/jenkins</url>
         </repository>
-    </distributionManagement>-->
+    </distributionManagement>
 </project>
