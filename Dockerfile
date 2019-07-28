@@ -1,4 +1,4 @@
 FROM openjdk
-ADD target/account-service.jar account-service.jar
-ENTRYPOINT ["java", "-jar", "/account-service.jar"]
-EXPOSE 2222
+ADD target/liveloc-worker.jar liveloc-worker.jar
+ENTRYPOINT ["java", "-jar", "/liveloc-worker.jar"]
+EXPOSE 9000

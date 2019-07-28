@@ -11,15 +11,12 @@ node {
         }
         stage('Image') {
             dir ('discovery-service') {
-                def app = docker.build "localhost:5000/discovery-service:${env.version}"
+                def app = docker.build "localhost:5000/liveloc-worker:${env.version}"
                 app.push()
             }
         }
         stage ('Run') {
-            docker.image("localhost:5000/discovery-service:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
-        }
-        stage ('Final') {
-            build job: 'account-service-pipeline', wait: false
+            docker.image("localhost:5000/liveloc-worker:${env.version}").run('-p 9000:9000 --name liveloc-worker')
         }
     }
 }
